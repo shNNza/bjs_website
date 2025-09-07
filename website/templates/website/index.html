@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Joy Solutions - Energy & Infrastructure Management</title>
+    <!-- Google Fonts - Inter (Optimized for readability and speed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'website/css/styles.css' %}">
+</head>
+<body>
+    <!-- Contact Bar -->
+    <div class="contact-bar" id="contactBar">
+        <div class="contact-bar-container">
+            <a href="mailto:info@bluejoysolutions.co.za" class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                info@bluejoysolutions.co.za
+            </a>
+            <a href="tel:+27437480218" class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                +27 43 748 0218
+            </a>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                63 Devereux Ave, Vincent, East London, 5241
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li>
+                <a href="#products">Products <span class="dropdown-arrow">▼</span></a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="#server-room">Server Room Solutions</a>
+                        <a href="#it-services">IT Services and Networking</a>
+                        <a href="#ups-power">UPS Backup Power</a>
+                        <a href="#batteries">Batteries for UPS</a>
+                        <a href="#generator">Generator Backup Power</a>
+                        <a href="#solar">Solar Power</a>
+                        <a href="#hvac">HVAC and Refrigeration</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#maintenance">Maintenance <span class="dropdown-arrow">▼</span></a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="#ups-battery-maintenance">UPS and Battery</a>
+                        <a href="#server-room-maintenance">Server Rooms</a>
+                        <a href="#generator-maintenance">Generator Backup Power</a>
+                        <a href="#solar-battery-maintenance">Solar and Battery Backup</a>
+                        <a href="#it-networking-maintenance">IT Services and Networking</a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact-form">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="slideshow-container">
+            <div class="slide active"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        
+        <div class="slideshow-nav">
+            <div class="nav-dot active" data-slide="0"></div>
+            <div class="nav-dot" data-slide="1"></div>
+            <div class="nav-dot" data-slide="2"></div>
+            <div class="nav-dot" data-slide="3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Energy & Infrastructure Excellence</h1>
+            <p>Comprehensive energy and infrastructure management services in East London. From UPS systems to solar solutions, we deliver seamless power and facilities management for commercial and industrial needs.</p>
+            <a href="#products" id="explore-products-btn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <section class="services" id="products">
+        <div class="container">
+            <h2 class="section-title fade-in">Complete Infrastructure Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in" id="server-room">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Server Room Solutions</h3>
+                    <p>Maintain a secure and efficient environment for your servers with specialized climate control, monitoring systems, and infrastructure management.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="it-services">
+                    <div class="service-icon">💻</div>
+                    <h3>IT Services and Networking</h3>
+                    <p>Reliable IT support, maintenance, and cloud solutions with secure, high-speed networking tailored for seamless connectivity and growth.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="ups-power">
+                    <div class="service-icon">⚡</div>
+                    <h3>UPS Backup Power</h3>
+                    <p>Critical power protection solutions with uninterruptible power supplies to ensure continuous operations during power outages.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="batteries">
+                    <div class="service-icon">🔋</div>
+                    <h3>Batteries for UPS</h3>
+                    <p>Reliable battery solutions specifically designed to support UPS systems with long-lasting performance and quick replacement options.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="generator">
+                    <div class="service-icon">🏭</div>
+                    <h3>Generator Backup Power</h3>
+                    <p>Reliable backup power systems to keep your facility running smoothly during extended power interruptions and emergencies.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="solar">
+                    <div class="service-icon">☀️</div>
+                    <h3>Solar Power</h3>
+                    <p>Harness renewable energy with our comprehensive solar installations, contributing to sustainable operations and significant cost savings.</p>
+                </div>
+                
+                <div class="service-card fade-in" id="hvac">
+                    <div class="service-icon">❄️</div>
+                    <h3>HVAC and Refrigeration</h3>
+                    <p>Well-regulated environmental control systems essential for seamless operations, equipment protection, and optimal working conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Powering East London's Infrastructure</h2>
+                    <p>Located at 63 Devereux Ave in Vincent, East London, Blue Joy Solutions has been delivering comprehensive energy and infrastructure management services with over 20 years of combined experience in energy management, information technology, and precision infrastructure.</p>
+                    <p>Our commitment extends beyond service delivery - we believe in genuine green initiatives that positively impact our environment while providing sustainable solutions that support our clients and contribute to our planet's preservation.</p>
+                    
+                    <!-- ANIMATED BOUNCING STATS BLOCKS -->
+                    <div class="stats-container">
+                        <div class="bounce-stat-block">
+                            <div class="count-number" data-target="20">0</div>
+                            <div class="count-label">Years Experience</div>
+                        </div>
+                        <div class="bounce-stat-block">
+                            <div class="count-number" data-target="500">0</div>
+                            <div class="count-label">Projects Completed</div>
+                        </div>
+                        <div class="bounce-stat-block">
+                            <div class="count-number" data-target="24">0</div>
+                            <div class="count-label">24/7 Support Available</div>
+                        </div>
+                        <div class="bounce-stat-block">
+                            <div class="count-number" data-target="100">0</div>
+                            <div class="count-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <!-- This would be replaced with actual images in Django template -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="contact-form-container">
+            <div class="contact-form-header">
+                <h2>Get In Touch With Us</h2>
+                <p>Ready to power your business with reliable energy solutions? Contact our expert team for a free consultation and discover how we can meet your infrastructure needs.</p>
+            </div>
+            
+            <div class="contact-form-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📍</div>
+                        <div class="contact-info-text">
+                            <h4>Our Address</h4>
+                            <p>63 Devereux Ave, Vincent<br>East London, 5241</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📞</div>
+                        <div class="contact-info-text">
+                            <h4>Phone Number</h4>
+                            <p>+27 43 748 0218</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">📧</div>
+                        <div class="contact-info-text">
+                            <h4>Email Address</h4>
+                            <p>info@bluejoysolutions.co.za</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">🕒</div>
+                        <div class="contact-info-text">
+                            <h4>Support Hours</h4>
+                            <p>24/7 Emergency Support<br>Mon-Fri: 8AM-5PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us A Message</h3>
+                    <form id="contactForm" method="post" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="ups-power">UPS Backup Power</option>
+                                <option value="generator">Generator Backup Power</option>
+                                <option value="solar">Solar Power Solutions</option>
+                                <option value="server-room">Server Room Solutions</option>
+                                <option value="hvac">HVAC and Refrigeration</option>
+                                <option value="it-services">IT Services and Networking</option>
+                                <option value="maintenance">Maintenance Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project or requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Blue Joy Solutions</h3>
+                <p>Comprehensive energy and infrastructure management services in East London, delivering sustainable solutions for commercial and industrial needs.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Products</h3>
+                <p><a href="#server-room">Server Room Solutions</a></p>
+                <p><a href="#it-services">IT Services and Networking</a></p>
+                <p><a href="#ups-power">UPS Backup Power</a></p>
+                <p><a href="#batteries">Batteries for UPS</a></p>
+                <p><a href="#generator">Generator Backup Power</a></p>
+                <p><a href="#solar">Solar Power</a></p>
+                <p><a href="#hvac">HVAC and Refrigeration</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>📍 63 Devereux Ave, Vincent<br>&nbsp;&nbsp;&nbsp;&nbsp;East London, 5241</p>
+                <p>📧 <a href="mailto:info@bluejoysolutions.co.za">info@bluejoysolutions.co.za</a></p>
+                <p>📞 <a href="tel:+27437480218">+27 43 748 0218</a></p>
+                <p>🕒 24/7 Emergency Support</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Why Choose Us</h3>
+                <p>✓ 20+ Years Experience</p>
+                <p>✓ Sustainable Solutions</p>
+                <p>✓ 24/7 Support</p>
+                <p>✓ Local East London Expertise</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Blue Joy Solutions. All rights reserved. | Sustainable Energy & Infrastructure Solutions</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'website/js/main.js' %}"></script>
+</body>
+</html>
