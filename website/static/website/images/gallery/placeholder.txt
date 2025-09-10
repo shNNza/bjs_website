@@ -1,0 +1,8 @@
+This directory contains gallery images.
+
+To populate the gallery:
+1. Add sample1.jpg - sample4.jpg for project images
+2. Add video-thumb1.jpg and video-thumb2.jpg for video thumbnails
+3. Add corresponding video files in the videos directory
+
+The gallery currently shows placeholder content but will display properly once images are added.

@@ -1,0 +1,682 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Blue Joy Solutions</title>
+    <link rel="stylesheet" href="{% static 'website/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-page-hero {
+            height: 50vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 140px;
+            overflow: hidden;
+        }
+
+        .contact-page-hero .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .contact-page-hero .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(30, 60, 114, 0.6), rgba(42, 82, 152, 0.6));
+            z-index: 2;
+        }
+
+        .contact-page-hero .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        
+        .contact-page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .contact-page-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .contact-page-content {
+            padding: 80px 2rem;
+            background: #f8fafc;
+        }
+        
+        .contact-page-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        .contact-info-section h2 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        .map-container h2 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .google-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            border: 2px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        /* Messages Styling */
+        .messages {
+            margin-bottom: 2rem;
+        }
+        
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-page-hero {
+                height: 40vh;
+                padding-top: 180px;
+            }
+            
+            .contact-page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-page-hero .hero-video {
+                min-height: 40vh;
+            }
+            
+            .contact-page-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-page-content {
+                padding: 40px 1rem;
+            }
+            
+            .contact-info-section,
+            .map-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-clock">
+            <div class="clock-number twelve">12</div>
+            <div class="clock-number three">3</div>
+            <div class="clock-number six">6</div>
+            <div class="clock-number nine">9</div>
+            <div class="center-dot"></div>
+        </div>
+    </div>
+
+    <!-- Top contact bar -->
+    <div class="contact-bar">
+        <div class="contact-bar-container">
+            <a href="https://helpdesk.bluejoysolutions.co.za" target="_blank" rel="noopener noreferrer" class="helpdesk-button">
+                <svg class="helpdesk-icon" viewBox="0 0 24 24" fill="white">
+                    <path d="M12,1C7,1 3,5 3,10V17A3,3 0 0,0 6,20H9V12H5V10A7,7 0 0,1 12,3A7,7 0 0,1 19,10V12H15V20H18A3,3 0 0,0 21,17V10C21,5 17,1 12,1Z"/>
+                </svg>
+                Helpdesk Login
+            </a>
+            <a href="mailto:info@bluejoysolutions.co.za" class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                info@bluejoysolutions.co.za
+            </a>
+            <a href="tel:+27437480218" class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                +27 43 748 0218
+            </a>
+            <div class="contact-item">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                63 Devereux Ave, Vincent, East London
+            </div>
+            <a href="https://www.facebook.com/profile.php?id=61576074317944" target="_blank" rel="noopener noreferrer" class="facebook-button">
+                <svg class="facebook-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Follow Us
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="/" class="nav-logo">
+            <img src="{% static 'website/images/logo/logo.jpg' %}" alt="Blue Joy Solutions" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li>
+                <a href="/#products">Products</a>
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="/#it-services">IT Services & Networking</a>
+                        <a href="/#backup-power-solar">Backup Power & Solar Solutions</a>
+                        <a href="/#hvac-air">HVAC and Air Conditioning</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'team' %}">Meet the Team</a>
+            </li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Page Hero -->
+    <section class="contact-page-hero">
+        <video id="contactHeroVideo" class="hero-video" autoplay muted loop playsinline preload="auto">
+            <source src="{% static 'website/videos/contact-background.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>Ready to power your business with reliable energy solutions? Get in touch with our expert team for personalized service and comprehensive infrastructure management.</p>
+        </div>
+    </section>
+
+    <!-- Contact Page Content -->
+    <section class="contact-page-content white-section-animated">
+        <div class="contact-page-grid">
+            <!-- Contact Information & Form -->
+            <div class="contact-info-section">
+                <h2>Get In Touch</h2>
+                
+                <!-- Contact Information -->
+                <div class="contact-info-item" style="margin-bottom: 2rem;">
+                    <div class="contact-info-icon">📍</div>
+                    <div class="contact-info-text">
+                        <h4>Our Address</h4>
+                        <p>63 Devereux Ave, Vincent<br>East London, 5241<br>South Africa</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item" style="margin-bottom: 2rem;">
+                    <div class="contact-info-icon">📞</div>
+                    <div class="contact-info-text">
+                        <h4>Phone Number</h4>
+                        <p><a href="tel:+27437480218">+27 43 748 0218</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-item" style="margin-bottom: 2rem;">
+                    <div class="contact-info-icon">📧</div>
+                    <div class="contact-info-text">
+                        <h4>Email Address</h4>
+                        <p><a href="mailto:info@bluejoysolutions.co.za">info@bluejoysolutions.co.za</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item" style="margin-bottom: 2rem;">
+                    <div class="contact-info-icon">🕒</div>
+                    <div class="contact-info-text">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>24/7 Emergency Support Available</p>
+                    </div>
+                </div>
+
+                <!-- Messages Display -->
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Contact Form -->
+                <form class="contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option value="it-networking">IT Services & Networking</option>
+                            <option value="backup-power-solar">Backup Power & Solar Solutions</option>
+                            <option value="hvac-air">HVAC and Air Conditioning</option>
+                            <option value="maintenance">Maintenance Services</option>
+                            <option value="consultation">General Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project or requirements..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-container">
+                <h2>Find Us</h2>
+                <iframe 
+                    class="google-map"
+                    src="https://maps.google.com/maps?q=63%20Devereux%20Avenue,%20Vincent,%20East%20London,%20South%20Africa&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 10px;">
+                    <p style="color: #64748b; font-size: 0.9rem; margin: 0;">
+                        <strong>Blue Joy Solutions</strong><br>
+                        63 Devereux Ave, Vincent<br>
+                        East London, 5241<br>
+                        South Africa
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="{% static 'website/images/logo/logo.jpg' %}" alt="Blue Joy Solutions" class="footer-logo-img">
+                </div>
+                <p>Delivering comprehensive energy and infrastructure management services across East London. From UPS systems to solar solutions, we provide reliable power and facilities management for your business needs.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <p>• IT Services & Networking</p>
+                <p>• Backup Power & Solar Solutions</p>
+                <p>• HVAC and Air Conditioning</p>
+                <p>• 24/7 Maintenance Support</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <svg class="footer-icon" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>63 Devereux Ave, Vincent, East London</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg class="footer-icon" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span><a href="mailto:info@bluejoysolutions.co.za">info@bluejoysolutions.co.za</a></span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg class="footer-icon" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>24/7 Emergency Support</span>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Why Choose Us</h3>
+                <p>✓ 20+ Years Experience</p>
+                <p>✓ Sustainable Solutions</p>
+                <p>✓ 24/7 Support</p>
+                <p>✓ Local East London Expertise</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Blue Joy Solutions. All rights reserved. | Sustainable Energy & Infrastructure Solutions</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18,15 12,9 6,15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Cookies Policy -->
+    <div id="cookiesButton" class="cookies-button">
+        <svg class="cookies-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12,3C7.03,3 3,7.03 3,12C3,16.97 7.03,21 12,21C16.97,21 21,16.97 21,12C21,7.03 16.97,3 12,3M7.5,6C8.33,6 9,6.67 9,7.5C9,8.33 8.33,9 7.5,9C6.67,9 6,8.33 6,7.5C6,6.67 6.67,6 7.5,6M12.5,8C13.33,8 14,8.67 14,9.5C14,10.33 13.33,11 12.5,11C11.67,11 11,10.33 11,9.5C11,8.67 11.67,8 12.5,8M16,10C16.83,10 17.5,10.67 17.5,11.5C17.5,12.33 16.83,13 16,13C15.17,13 14.5,12.33 14.5,11.5C14.5,10.67 15.17,10 16,10M15.5,15C16.33,15 17,15.67 17,16.5C17,17.33 16.33,18 15.5,18C14.67,18 14,17.33 14,16.5C14,15.67 14.67,15 15.5,15M10,16C10.83,16 11.5,16.67 11.5,17.5C11.5,18.33 10.83,19 10,19C9.17,19 8.5,18.33 8.5,17.5C8.5,16.67 9.17,16 10,16Z"/>
+        </svg>
+        <span class="cookies-tooltip">Manage Content</span>
+    </div>
+
+    <div id="cookiesPopup" class="cookies-popup">
+        <div class="cookies-popup-content">
+            <button id="closeCookies" class="cookies-close-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="cookies-header">
+                <img src="{% static 'website/images/logo/logo.jpg' %}" alt="Blue Joy Solutions" class="cookies-logo">
+                <h3>Manage Consent</h3>
+            </div>
+            <p>To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions.</p>
+            
+            <div id="mainCookieButtons" class="cookies-buttons">
+                <button id="acceptCookies" class="cookies-btn accept">Accept</button>
+                <button id="denyCookies" class="cookies-btn deny">Deny</button>
+                <button id="preferencesCookies" class="cookies-btn preferences">View Preferences</button>
+            </div>
+
+            <div id="cookiePreferencesSection" class="cookie-preferences-section" style="display: none;">
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Functional Cookies</h4>
+                            <button class="expand-btn" onclick="toggleCategoryExpansion('functional')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="functionalCookies" disabled checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="cookie-category-description" id="functional-description" style="display: none;">
+                        <p>The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</p>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Statistics Cookies</h4>
+                            <button class="expand-btn" onclick="toggleCategoryExpansion('statistics')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="statisticsCookies">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="cookie-category-description" id="statistics-description" style="display: none;">
+                        <p>The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</p>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h4>Marketing Cookies</h4>
+                            <button class="expand-btn" onclick="toggleCategoryExpansion('marketing')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6,9 12,15 18,9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="marketingCookies">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="cookie-category-description" id="marketing-description" style="display: none;">
+                        <p>The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.</p>
+                    </div>
+                </div>
+
+                <div class="cookie-preferences-buttons">
+                    <button class="cookies-btn secondary" onclick="hideCookiePreferences()">Back</button>
+                    <button class="cookies-btn accept" onclick="saveCookiePreferences()">Save Preferences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookiesOverlay" class="cookies-overlay"></div>
+
+    <script src="{% static 'website/js/main.js' %}"></script>
+    <script>
+        // Contact Hero Video Control
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactVideo = document.getElementById('contactHeroVideo');
+            
+            if (contactVideo) {
+                // Force video to play
+                contactVideo.play().then(function() {
+                    console.log('Contact video started playing');
+                }).catch(function(error) {
+                    console.log('Contact video autoplay failed:', error);
+                    // Try to play again on user interaction
+                    document.addEventListener('click', function() {
+                        contactVideo.play().catch(function(err) {
+                            console.log('Manual video play failed:', err);
+                        });
+                    }, { once: true });
+                });
+                
+                // Handle video errors
+                contactVideo.addEventListener('error', function(e) {
+                    console.log('Contact video error:', e);
+                });
+                
+                // Handle video loading
+                contactVideo.addEventListener('loadstart', function() {
+                    console.log('Contact video loading started');
+                });
+                
+                contactVideo.addEventListener('loadeddata', function() {
+                    console.log('Contact video data loaded');
+                });
+            }
+            
+            // Cookies Policy Functionality
+            const cookiesButton = document.getElementById('cookiesButton');
+            const cookiesPopup = document.getElementById('cookiesPopup');
+            const cookiesOverlay = document.getElementById('cookiesOverlay');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const denyBtn = document.getElementById('denyCookies');
+            const preferencesBtn = document.getElementById('preferencesCookies');
+            const closeBtn = document.getElementById('closeCookies');
+
+            // Check if cookies consent has already been given
+            const cookiesConsent = localStorage.getItem('cookiesConsent');
+            if (cookiesConsent) {
+                cookiesButton.style.display = 'none';
+            }
+
+            // Open cookies popup
+            cookiesButton.addEventListener('click', function() {
+                cookiesPopup.classList.add('active');
+                cookiesOverlay.classList.add('active');
+            });
+
+            // Close popup when clicking overlay
+            cookiesOverlay.addEventListener('click', function() {
+                cookiesPopup.classList.remove('active');
+                cookiesOverlay.classList.remove('active');
+            });
+
+            // Close popup when clicking close button
+            closeBtn.addEventListener('click', function() {
+                cookiesPopup.classList.remove('active');
+                cookiesOverlay.classList.remove('active');
+            });
+
+            // Accept cookies
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookiesConsent', 'accepted');
+                cookiesPopup.classList.remove('active');
+                cookiesOverlay.classList.remove('active');
+                cookiesButton.style.display = 'none';
+                console.log('Cookies accepted');
+            });
+
+            // Deny cookies
+            denyBtn.addEventListener('click', function() {
+                localStorage.setItem('cookiesConsent', 'denied');
+                cookiesPopup.classList.remove('active');
+                cookiesOverlay.classList.remove('active');
+                cookiesButton.style.display = 'none';
+                console.log('Cookies denied');
+            });
+
+            // View preferences (placeholder - can be expanded)
+            preferencesBtn.addEventListener('click', function() {
+                alert('Cookie preferences panel would open here. This can be customized to show detailed cookie categories and settings.');
+            });
+        });
+
+        // Scroll to Top Button Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navigation scroll behavior - hide/show navbar and contact bar when scrolling
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const contactBar = document.querySelector('.contact-bar');
+        
+        if (navbar && contactBar) {
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    navbar.classList.add('hidden');
+                    contactBar.classList.add('hidden');
+                } else {
+                    // Scrolling up
+                    navbar.classList.remove('hidden');
+                    contactBar.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
+    </script>
+</body>
+</html>
